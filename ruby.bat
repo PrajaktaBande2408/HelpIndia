@@ -1,0 +1,1 @@
+@"C:\Ruby22\bin\ruby.exe" %1 %2 %3
