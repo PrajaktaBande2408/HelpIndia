@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'order/new'
+  get 'welcome/works'
 
   # namespace :users do
   # get 'my_account/myaccount'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :order
-    # post 'order/create'
+    get 'order/listallOrders'
   end
 
 

@@ -19,6 +19,12 @@ class OrderController < ApplicationController
 
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @order = @user.orders
+    p @order
+  end
+
   private
   def order_params
     params.require(:order).permit(:field1, :field2)

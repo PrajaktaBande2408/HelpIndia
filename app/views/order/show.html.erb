@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>field 1</th>
+    <th>field 2</th>
+
+  </tr>
+
+  <% @order.each do |order| %>
+    <tr>
+      <td style="padding:2Px;"><%= order.field1 %></td>
+      <td style="padding:2Px;"><%= order.field2 %></td>
+
+    </tr>
+  <% end %>
+</table>
