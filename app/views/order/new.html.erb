@@ -1,1 +1,22 @@
-welcome to first ordwr
+
+
+    <%= form_for(@user.orders.build, as: @user.orders.build, :url => { :controller => "order", :action => "create" }) do |form| %>
+  <p>
+    <%= form.label :field1 %><br>
+    <%= form.text_field :field1 %>
+  </p>
+  <p>
+    <%= form.label :field2 %><br>
+    <%= form.text_area :field2 %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+
+
+
+

@@ -60,7 +60,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:firstName])
   end
   def after_sign_up_path_for(resource)
-    '/order/new' # Or :prefix_to_your_route
+    # '/order/new' # Or :prefix_to_your_route
+    me = current_user
+    @user = User.find(me)
+    path= "/users/"+@user.id.to_s+"/order"
+    path
   end
   def after_sign_out_path_for(resource)
     '/' # Or :prefix_to_your_route

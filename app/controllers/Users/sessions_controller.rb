@@ -18,7 +18,12 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
   def after_sign_in_path_for(resource)
-    '/order/new' # Or :prefix_to_your_route
+    # # '/order/new' # Or :prefix_to_your_route
+    me = current_user
+    @user = User.find(me)
+    path= "/users/"+@user.id.to_s+"/order"
+    path
+    # redirect_to user_orders_path
   end
   def after_sign_out_path_for(resource)
     '/' # Or :prefix_to_your_route
