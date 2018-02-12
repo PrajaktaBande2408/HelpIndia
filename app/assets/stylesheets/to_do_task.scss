@@ -1,0 +1,33 @@
+// Place all the styles related to the ToDoTask controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#addToDoTask{
+  background-color: #730E15;
+  border-radius: 5px;
+  height: 10%;
+  width:50%;
+  margin: 0 25%;
+  padding: 1%
+}
+#showAllToDoTask{
+  background-color: #730E15;
+  border-radius: 5px;
+  height: 10%;
+  width:50%;
+  margin: 2% 25%;
+  padding: 1%
+}
+
+.doneItems{
+  text-decoration: line-through;
+}
+
+.oneDayBack {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+

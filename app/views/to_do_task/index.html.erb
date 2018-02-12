@@ -1,0 +1,18 @@
+<div id="addToDoTask" >
+  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">Add New Task</p>
+
+
+  <%= form_for(@user.to_do_tasks, as: @user.to_do_tasks, :url => { :controller => "to_do_task", :action => "create" }) do |form| %>
+    <p>
+      <%= form.label :taskToDO %><br>
+      <%= form.text_field :taskToDO %>
+    </p>
+    <p>
+
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>
+<div id="showAllToDoTask"></div>

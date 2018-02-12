@@ -1,0 +1,19 @@
+
+
+
+
+<div id="addToDoTask" >
+  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TO DO month View</p>
+  <table style="margin:0 36%">
+    <tr>
+      <td><%= image_tag("next.png" , class: "oneDayBack")%></td>
+      <td><input type="text" name="selected[date]" id="selectedMonth" data-id='<%= @user.id%>'  value="<%=@day%>"></td>
+      <td><%= image_tag("next.png", class: "oneDayFwd") %></td>
+    </tr>
+  </table>
+  <div id="displayMonthtasks">
+
+  </div>
+
+</div>
+

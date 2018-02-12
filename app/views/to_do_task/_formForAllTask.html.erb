@@ -1,0 +1,27 @@
+
+<%if !@AllTasks.empty? %>
+<div>
+    <table style="width:94%;margin:0 3%;color: white;">
+
+      <% @AllTasks.each do |task| %>
+        <%next if task.id== nil%>
+        <tr>
+          <td >
+            <input  id='task_<%=task.id%>' name='<%=task.id%>' type="checkbox"
+                       value='<%=task.status%>' class="doneCheck" />
+
+          </td>
+          <td ><%= task.taskToDO %></td>
+          <%if @allTaskView == true%>
+            <td> <%= task.date %></td>
+          <%end%>
+          <td ><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task),
+                           data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+
+        </tr>
+      <% end %>
+    </table>
+</div>
+<%else%>
+  <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;">No todos,May be you need to add some. </p>
+<%end%>

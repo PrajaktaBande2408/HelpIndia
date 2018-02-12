@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <%= stylesheet_link_tag "to_do_task" %>
 
 
 
@@ -24,7 +30,7 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-        <li><a href="/welcome/works">About us</a></li>
+        <li><a href="/welcome/index">contact us</a></li>
         <li><a href="/welcome/works">works</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -45,9 +51,9 @@
     <p ><%= notice %></p>
     <p ><%= alert %></p>
   </div>
-  <div>
-    <h1 style="text-align: center;color: crimson;">WELCOME TO HELP INDIA</h1>
-  </div>
+  <!--<div>-->
+    <!--<h1 style="text-align: center;color: crimson;">WELCOME TO HELP INDIA</h1>-->
+  <!--</div>-->
 <%= yield %>
 
 </body>

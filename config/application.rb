@@ -23,6 +23,19 @@ module HelpIndia
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.action_controller.include_all_helpers = false
+    config.action_controller.include_all_helpers = true
+    #
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    ActionMailer::Base.smtp_settings = {
+        :address        => 'smtp.gmail.com',
+        :port           => '587',
+        :authentication => :plain,
+        :user_name      => 'prajaktabande1711@gmail.com',
+        :password       => 'Praju1117',
+        :domain         => 'gmail.com',
+        :enable_starttls_auto => true
+    }
   end
 end
