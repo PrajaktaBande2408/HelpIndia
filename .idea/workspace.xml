@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94e3ed0d-9761-417b-9c7f-c048ef25f8c6" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/delete.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/next.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/to_do_task.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/to_do_task.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/to_do_task_controller.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/helpers/to_do_task_helper.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/to_do_task.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/mailer.text.erb" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/to_do_task/_formForAllTask.html.erb" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/to_do_task/displayDayView.html.erb" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/to_do_task/displayMonthView.html.erb" />
@@ -11,6 +22,17 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/to_do_task/submitCheckboxVal.html.erb" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app/views/welcome/create.html.erb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180207091154_create_to_do_tasks.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180207132415_change_column_name.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180208043514_change_data_type_for_fieldname.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180208074723_add_status_to_to_do_tasks.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180209070233_change_date_format_in_my_table.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/controllers/to_do_task_controller_test.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/to_do_tasks.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/mailers/previews/user_mailer_preview.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/mailers/user_mailer_test.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/models/to_do_task_test.rb" />
       <change beforePath="$PROJECT_DIR$/.idea/HelpIndia.iml" afterPath="$PROJECT_DIR$/.idea/HelpIndia.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
@@ -512,12 +534,12 @@
       <workItem from="1517484690051" duration="60184000" />
       <workItem from="1517922011255" duration="11046000" />
       <workItem from="1517978497896" duration="90268000" />
-      <workItem from="1518411424112" duration="9000" />
+      <workItem from="1518411424112" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174102000" />
+    <option name="totallyTimeSpent" value="174131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
