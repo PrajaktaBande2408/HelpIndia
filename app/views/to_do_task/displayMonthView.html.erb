@@ -6,9 +6,9 @@
   <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TO DO month View</p>
   <table style="margin:0 36%">
     <tr>
-      <td><%= image_tag("next.png" , class: "oneDayBack")%></td>
+      <td><%= image_tag("next.png" , class: "oneMonthBack")%></td>
       <td><input type="text" name="selected[date]" id="selectedMonth" data-id='<%= @user.id%>'  value="<%=@day%>"></td>
-      <td><%= image_tag("next.png", class: "oneDayFwd") %></td>
+      <td><%= image_tag("next.png", class: "oneMonthFwd") %></td>
     </tr>
   </table>
   <div id="displayMonthtasks">
@@ -17,3 +17,4 @@
 
 </div>
 
+<%= link_to 'Back', new_user_to_do_task_path %>

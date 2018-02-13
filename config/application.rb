@@ -33,7 +33,7 @@ module HelpIndia
         :port           => '587',
         :authentication => :plain,
         :user_name      => 'prajaktabande1711@gmail.com',
-        :password       => 'Praju1117',
+        :password       => 'abc',
         :domain         => 'gmail.com',
         :enable_starttls_auto => true
     }

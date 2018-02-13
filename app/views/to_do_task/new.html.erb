@@ -1,4 +1,4 @@
-<%= javascript_include_tag "to_do_task" %>
+
   <div id="addToDoTask" >
   <p style="color: white;font-weight: bold;font size:50px;text-align: center;">Add New Task</p>
     <%= form_for(@user.to_do_tasks.build, as: @user.to_do_tasks.build, :url => { :controller => "to_do_task", :action => "create" }) do |form| %>
