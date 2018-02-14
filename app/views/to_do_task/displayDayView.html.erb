@@ -1,19 +1,64 @@
 
-
-
-
 <div id="addToDoTask" >
-  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TO DO Day View</p>
+  <%= link_to 'Back', new_user_to_do_task_path %>
+
+  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TODO Day View</p>
   <table style="margin:0 36%">
     <tr>
-      <td><a href="#" id="oneDayBack"><%= image_tag("next.png" , class: "oneDayBack")%></a></td>
+      <td><%= image_tag("next.png" , class: "oneDayBack")%></td>
       <td><input type="text" name="selected[date]" id="selectedDay" data-id='<%= @user.id%>' data-placeholder="Date of birth" value="<%= @date%>"></td>
-      <td><a href="#" id="oneDayFwd"><%= image_tag("next.png", class: "oneDayFwd") %></a></td>
+      <td><%= image_tag("next.png", class: "oneDayFwd") %></td>
     </tr>
   </table>
 <div id="displayDailytasks">
 
-</div>
 
-</div>
-<%= link_to 'Back', new_user_to_do_task_path %>
+
+<script>
+
+    $( function() {
+        $( "#selectedDay" ).datepicker();
+    } );
+
+    ////day view
+    $('.oneDayBack').on("click", function () {
+        getDayToDisplay("oneDayBack");
+    });
+
+    $('.oneDayFwd').on("click", function () {
+        getDayToDisplay("oneDayFwd");
+    });
+    getDayToDisplay("onLoad");
+
+    $("#selectedDay").change(function() {
+        getDayToDisplay("onLoad");
+    });
+
+    function getDayToDisplay(type) {
+        var myVariable = $('#selectedDay').val();
+        // var myVariable = "jan 2014"
+        var makeDate = new Date(myVariable);
+        if (type == "oneDayBack"){
+            makeDate = new Date(makeDate.setDate(makeDate.getDate() - 1));}
+        else if(type == "oneDayFwd"){
+            makeDate = new Date(makeDate.setDate(makeDate.getDate() + 1));}
+        else if(type == "onLoad"){
+            makeDate = new Date(makeDate.setDate(makeDate.getDate() ));}
+
+        var dateToSend =(makeDate.getMonth() + 1) + "/" + makeDate.getDate() + "/" + makeDate.getFullYear()
+
+        $('#selectedDay').val(dateToSend);
+
+        var userId = $('#selectedDay').attr('data-id');
+        $.ajax({
+            url: '/to_do_task/refreshDayView',
+            type: 'post',
+            data: {'selectedDay' :dateToSend,'user_id' : userId },
+            success: function( data ){
+                $("#displayDailytasks").html(" ").html(data);
+                eachDoncheck();
+
+            }
+        });
+    }
+</script>

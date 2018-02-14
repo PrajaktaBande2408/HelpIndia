@@ -11,8 +11,13 @@
               </td>
               <td ><%= task.taskToDO %></td>
               <%if @allTaskView == "AllView"%>
+                <%if task.date.to_s != ""%>
                 <td> Date:<%= task.date.strftime("%d/%m/%Y")  %></td>
-              <%end%>
+                  <%else%>
+                <td> Date:<%= task.date  %></td>
+                  <%end%>
+
+            <%end%>
               <td ><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task),
                                data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
             </tr>
@@ -46,6 +51,6 @@
       <%end%>
     <%end%>
 <%else%>
-  <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;">No todos,May be you need to add some. </p>
+  <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;"><%=@msgForNOTODO%> </p>
 <%end%>
 </div>

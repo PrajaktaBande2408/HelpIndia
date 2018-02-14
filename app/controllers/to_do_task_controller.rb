@@ -8,13 +8,21 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @AllTasks=@user.to_do_tasks
     @allTaskView="AllView"
+    @msgForNOTODO ="No todos,May be you need to add some."
   end
 
   def create
     @user = User.find(params[:user_id])
     @toDoTask = @user.to_do_tasks.create(todoTask_params)
-     @toDoTask.save
-    redirect_to new_user_to_do_task_path
+    @AllTasks=@user.to_do_tasks
+    @allTaskView="AllView"
+    @msgForNOTODO ="No todos,May be you need to add some."
+    @toDoTask.save
+    respond_to do |format|
+      format.html { render action: "new" }
+
+    end
+
   end
 
   def destroy
@@ -35,6 +43,8 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @AllTasks=@user.to_do_tasks
     @allTaskView="monthView"
+    @msgForNOTODO ="No todos for this month."
+
     @day=Date.today.strftime("%B %Y")
   end
 
@@ -43,18 +53,16 @@ class ToDoTaskController < ApplicationController
     @AllTasks=ToDoTask.find_by_sql(["SELECT * FROM to_do_tasks WHERE strftime('%m %Y',    date) = ? AND user_id = ? ORDER BY date ASC", params[:selectedMonth], params[:user_id]])
     @monthView=Hash.new
     @AllTasks.each do |task|
-      if !@monthView.has_key? task.date.strftime("%d/%m/%Y")
-      @monthView[task.date.strftime("%d/%m/%Y")]= Array.new
-      @monthView[task.date.strftime("%d/%m/%Y")].push(task)
+      if !@monthView.has_key? task.date.strftime("%m/%d/%Y")
+      @monthView[task.date.strftime("%m/%d/%Y")]= Array.new
+      @monthView[task.date.strftime("%m/%d/%Y")].push(task)
       else
-        @monthView[task.date.strftime("%d/%m/%Y")].push(task)
+        @monthView[task.date.strftime("%m/%d/%Y")].push(task)
       end
     end
-      @allTaskView="monthView"
-    # respond_to do |format|
-    #   format.html{ render :partial => 'to_do_task/formForAllTask'}
-    #   format.js
-    # end
+    @allTaskView="monthView"
+    @msgForNOTODO ="No todos for this month."
+
     render :partial => 'to_do_task/formForAllTask'
   end
 
@@ -63,6 +71,8 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @AllTasks=@user.to_do_tasks
     @allTaskView="dayView"
+    @msgForNOTODO ="No todos for this date."
+
     @date=Date.today.strftime("%m/%d/%Y")
   end
 
@@ -73,6 +83,9 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @AllTasks=ToDoTask.where("date = ? AND user_id = ?", formateddate, params[:user_id])
     @allTaskView="dayView"
+
+    @msgForNOTODO ="No todos for this date."
+
     render :partial => 'to_do_task/formForAllTask'
   end
 
