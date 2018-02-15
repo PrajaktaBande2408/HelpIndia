@@ -1,56 +1,33 @@
-<div>
-<%if !@AllTasks.empty? %>
-    <%if @allTaskView != "monthView"%>
-        <table style="width:94%;margin:0 3%;color: white;">
-          <% @AllTasks.each do |task| %>
-            <%next if task.id== nil%>
-            <tr>
-              <td >
-                <input  id='task_<%=task.id%>' name='<%=task.id%>' type="checkbox"
-                           value='<%=task.status%>' class="doneCheck" />
-              </td>
-              <td ><%= task.taskToDO %></td>
-              <%if @allTaskView == "AllView"%>
-                <%if task.date.to_s != ""%>
-                <td> Date:<%= task.date.strftime("%d/%m/%Y")  %></td>
-                  <%else%>
-                <td> Date:<%= task.date  %></td>
-                  <%end%>
-
-            <%end%>
-              <td ><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task),
-                               data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-            </tr>
-          <% end %>
-        </table>
-    <%else%>
-      <%if @monthView != nil%>
-        <%@monthView.each do|key,list|%>
-          <h4 style="color:coral;text-align: center;" ><%= key%></h4>
-            <table style="width:94%;margin:0 3%;color: white;">
-
-              <%list.each do |task|%>
-                <%next if task.id== nil%>
-
-                <tr>
-                  <td width="10%;">
-                    <input  id='task_<%=task.id%>' name='<%=task.id%>' type="checkbox"
-                            value='<%=task.status%>' class="doneCheck" />
-
-                  </td>
-
-                  <td  width="74%;"><%= task.taskToDO.to_s %></td>
-
-                  <td  width="10%;"><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task),
-                                   data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-
-                </tr>
-              <%end%>
-            </table>
-        <%end%>
-      <%end%>
-    <%end%>
+<%if @AllTasks.empty? %>
+  <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;margin-top: 3%;"><%=@msgForNOTODO%> </p>
 <%else%>
-  <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;"><%=@msgForNOTODO%> </p>
+  <%if @allTaskView != "monthView"%>
+      <% @AllTasks.each do |task| %>
+        <%next if task.id== nil%>
+        <%if @allTaskView == "AllView"%>
+          <div class="taskDisplay">
+        <%else%>
+          <div class="taskDisplay" style="margin:0 35%;">
+      <% end%>
+            <span style="width:5%;"> <input  id='task_<%=task.id%>' name='<%=task.id%>' type="checkbox" value='<%=task.status%>' class="doneCheck" /></span>
+            <span style="width:40%;"><%= task.taskToDO %></span>
+            <%if @allTaskView == "AllView"%>
+              <span style="width:30%;">Date:<%= task.date.strftime("%d/%m/%Y")  %></span>
+           <%end%>
+            <span style="width:5%;"><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task), title: 'Delete Task', data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
+          </div>
+      <%end%>
+  <%elsif @monthView != nil%>
+    <%@monthView.each do|key,list|%>
+      <h4 style="color:coral;text-align: center;" ><%= key%></h4>
+        <%list.each do |task|%>
+          <%next if task.id== nil%>
+          <div class="taskDisplay" style="margin:0 35%;">
+            <span style="width:5%;"><input  id='task_<%=task.id%>' name='<%=task.id%>' type="checkbox" value='<%=task.status%>' class="doneCheck" /></span>
+            <span style="width:40%;"><%= task.taskToDO.to_s %></span>
+            <span style="width:5%;"><%= link_to image_tag("delete.png"), user_to_do_task_path(@user, task), title: 'Delete Task', data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
+          </div>
+        <%end%>
+    <%end%>
+  <%end%>
 <%end%>
-</div>

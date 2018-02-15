@@ -1,8 +1,16 @@
 class ToDoTaskController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:submitCheckboxVal,:refreshMonthView,:refreshDayView]
-
+  respond_to :html, :json, :xml
   def index
+    @user = User.find(params[:user_id])
+    @AllTasks=@user.to_do_tasks
+    @allTaskView="AllView"
+    @msgForNOTODO ="No todos,May be you need to add some."
+    # render "to_do_task/index"
+    respond_with(@AllTasks)
   end
+
+
 
   def new
     @user = User.find(params[:user_id])
@@ -18,9 +26,11 @@ class ToDoTaskController < ApplicationController
     @allTaskView="AllView"
     @msgForNOTODO ="No todos,May be you need to add some."
     @toDoTask.save
-    respond_to do |format|
-      format.html { render action: "new" }
 
+    if @toDoTask.save
+      redirect_to user_to_do_task_index_path
+    else
+      render 'new'
     end
 
   end
@@ -29,7 +39,9 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @toDoTask = @user.to_do_tasks.find(params[:id])
     @toDoTask.destroy
-    redirect_to new_user_to_do_task_path
+    # redirect_to new_user_to_do_task_path
+    redirect_to :back
+
   end
 
   def submitCheckboxVal

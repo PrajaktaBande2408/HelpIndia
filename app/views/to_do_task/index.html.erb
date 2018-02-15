@@ -1,18 +1,16 @@
-<div id="addToDoTask" >
-  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">Add New Task</p>
-
-
-  <%= form_for(@user.to_do_tasks, as: @user.to_do_tasks, :url => { :controller => "to_do_task", :action => "create" }) do |form| %>
-    <p>
-      <%= form.label :taskToDO %><br>
-      <%= form.text_field :taskToDO %>
-    </p>
-    <p>
-
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
+<div class="showAllToDoTask" >
+  <%= link_to "TODO Day View", user_to_do_task_displayDayView_path %>
 </div>
-<div id="showAllToDoTask"></div>
+<div class="showAllToDoTask" >
+  <%= link_to "TODO Month ", user_to_do_task_displayMonthView_path%>
+</div>
+
+<div class="showAllToDoTask" >
+  <%= link_to "new task ", new_user_to_do_task_path%>
+</div>
+
+<div class="showAllToDoTask">
+  <p style="color: white;font-weight: bold;font size:50px;text-align: center;">All TODO Tasks</p>
+  <%= render 'to_do_task/formForAllTask' %>
+</div>
+

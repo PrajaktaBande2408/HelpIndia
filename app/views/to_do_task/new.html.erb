@@ -2,36 +2,20 @@
   <div id="addToDoTask" >
   <p style="color: white;font-weight: bold;font size:50px;text-align: center;">Add new Task</p>
     <%= form_for(@user.to_do_tasks.build, as: @user.to_do_tasks.build, :url => { :controller => "to_do_task", :action => "create" }) do |form| %>
-      <table style="width:65%;margin:0 17.5%;">
-        <tr>
-          <td><%= form.text_field :taskToDO ,placeholder:"What needs to be done?"%></td>
-          <td> <%= form.date_field :date%></td>
-          <td> <%= form.submit "Add Task"%></td>
-        </tr>
-      </table>
+
+      <div style="width:70%;margin:0 15%;">
+        <span><%= form.text_field :taskToDO ,placeholder:"What needs to be done?"%></span>
+        <!--<span><%#= form.date_field :date%></span>-->
+        <span><%= form.text_field :date, placeholder:"Select date" %></span>
+
+        <span><%= form.submit "Add Task"%></span>
+      </div>
 
       <% if @toDoTask && @toDoTask.errors.any? %>
         <% @toDoTask.errors.full_messages.each do |msg| %>
-          <p style="color: white;font-weight: bold;font size:50px;text-align: center;"><%= msg %></p>
+          <p style="color: red;font-weight: bold;font size:50px;text-align: center;"><%= msg %></p>
         <% end %>
       <% end %>
     <% end %>
   </div>
 
-  <div id="showAllToDoTask">
-    <p style="color: white;font-weight: bold;font size:50px;text-align: center;">All TODO Tasks</p>
-    <%if @user.to_do_tasks.count == 0 %>
-      <p style="color: blueviolet;font-weight: bold;font size:50px;text-align: center;">No todos,May be you need to add some. </p>
-
-    <%else%>
-      <%= render 'to_do_task/formForAllTask' %>
-    <%end%>
-
-  </div>
-
-  <div id="showAllToDoTask" >
-    <%= link_to "TODO Day View", user_to_do_task_displayDayView_path %>
-  </div>
-  <div id="showAllToDoTask" >
-    <%= link_to "TODO Month ", user_to_do_task_displayMonthView_path%>
-  </div>

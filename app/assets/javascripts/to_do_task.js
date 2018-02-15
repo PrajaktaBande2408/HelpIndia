@@ -28,6 +28,9 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
         });
     });
     eachDoncheck();
+
+
+        $("#to_do_task_date").datepicker({dateFormat: 'dd-mm-yy'});
 });
 
     function eachDoncheck () {

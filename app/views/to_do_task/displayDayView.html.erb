@@ -1,18 +1,18 @@
 
 <div id="addToDoTask" >
-  <%= link_to 'Back', new_user_to_do_task_path %>
+  <%= link_to 'Back', user_to_do_task_index_path %>
 
   <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TODO Day View</p>
-  <table style="margin:0 36%">
-    <tr>
-      <td><%= image_tag("next.png" , class: "oneDayBack")%></td>
-      <td><input type="text" name="selected[date]" id="selectedDay" data-id='<%= @user.id%>' data-placeholder="Date of birth" value="<%= @date%>"></td>
-      <td><%= image_tag("next.png", class: "oneDayFwd") %></td>
-    </tr>
-  </table>
-<div id="displayDailytasks">
 
+  <div style="margin:0 32%">
+    <span ><%= image_tag("next.png" , class: "oneDayBack")%></span>
+    <span><input type="text" name="selected[date]" id="selectedDay" data-id='<%= @user.id%>' data-placeholder="Date of birth" value="<%= @date%>"></span>
+    <span><%= image_tag("next.png", class: "oneDayFwd") %></span>
+  </div>
 
+  <div id="displayDailytasks"  style="margin-top: 3%;">
+  </div>
+</div>
 
 <script>
 

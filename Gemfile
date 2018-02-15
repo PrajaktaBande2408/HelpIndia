@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~>4.4.1'
 gem 'bootstrap', '~> 4.0.0'
+gem 'rabl', '0.13.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails', :group => :development
@@ -33,6 +34,11 @@ gem 'pry-rails', :group => :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'sprockets-rails', '~>2.3.3'
+gem 'rack-cors', '~> 0.3.1'
+group :assets do
+  # ...
+  gem 'jquery-ui-rails'
+end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

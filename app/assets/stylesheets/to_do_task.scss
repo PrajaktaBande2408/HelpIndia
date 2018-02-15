@@ -9,7 +9,7 @@
   margin: 0 25%;
   padding: 1%
 }
-#showAllToDoTask{
+.showAllToDoTask{
   background-color: #730E15;
   border-radius: 5px;
   height: 10%;
@@ -31,14 +31,9 @@
   -ms-filter: "FlipH";
 }
 
-#showAllToDoTask > a {
+.showAllToDoTask > a {
   color: white;
 }
-
-//input::-webkit-calendar-picker-indicator,
-//input::-webkit-inner-spin-button {
-//  display: none;
-//}
 
 .ui-widget-header {
   border: 1px solid #dddddd;
@@ -46,4 +41,21 @@
   color: #333333;
   font-weight: bold;
   background-color: orange;
+}
+.taskDisplay{
+  color:white;
+  width:60%;
+  margin:0 20%;
+}
+.taskDisplay > span{
+  display: inline-block;
+  word-wrap:break-word;
+  vertical-align: text-top;
+}
+
+#addToDoTask > a {
+  color: white;
+}
+.oneDayBack,.oneDayFwd,.oneMonthBack,.oneMonthFwd{
+  cursor: pointer;
 }

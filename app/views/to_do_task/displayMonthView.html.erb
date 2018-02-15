@@ -3,22 +3,19 @@
 
 
 <div id="addToDoTask" >
-  <%= link_to 'Back', new_user_to_do_task_path %>
+  <%= link_to 'Back', user_to_do_task_index_path %>
 
   <p style="color: white;font-weight: bold;font size:50px;text-align: center;">TODO Month</p>
-  <table style="margin:0 36%">
-    <tr>
-      <td><%= image_tag("next.png" , class: "oneMonthBack")%></td>
-      <td><input type="text" name="selected[date]" id="selectedMonth" data-id='<%= @user.id%>'  value="<%=@day%>"></td>
-      <td><%= image_tag("next.png", class: "oneMonthFwd") %></td>
-    </tr>
-  </table>
-  <div id="displayMonthtasks">
 
+  <div style="margin:0 32%">
+    <span><%= image_tag("next.png" , class: "oneMonthBack")%></span>
+    <span><input type="text" name="selected[date]" id="selectedMonth" data-id='<%= @user.id%>'  value="<%=@day%>"></span>
+    <span><%= image_tag("next.png", class: "oneMonthFwd") %></span>
   </div>
 
+  <div id="displayMonthtasks"  style="margin-top: 3%;">
+  </div>
 </div>
-
 
 <script>
     //MonthView

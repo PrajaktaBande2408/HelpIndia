@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   post 'to_do_task/refreshMonthView' => 'to_do_task#refreshMonthView'
   post 'to_do_task/refreshDayView' => 'to_do_task#refreshDayView'
 
-
-
   devise_for :users, controllers: { registrations: 'users/registrations',sessions: 'users/sessions' }
+
   devise_scope :user do
     get 'users/sign_out' => 'devise/sessions#destroy'
   end
@@ -17,12 +16,9 @@ Rails.application.routes.draw do
     resources :order
     get 'to_do_task/displayMonthView' => 'to_do_task#displayMonthView'
     get 'to_do_task/displayDayView' => 'to_do_task#displayDayView'
-
-
+    post 'to_do_task/new' => 'to_do_task#create'
     resources :to_do_task
     get 'order/listallOrders'
-
-
   end
 
   root 'welcome#welcome'
