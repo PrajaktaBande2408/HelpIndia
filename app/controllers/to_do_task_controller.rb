@@ -1,5 +1,5 @@
 class ToDoTaskController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => [:submitCheckboxVal,:refreshMonthView,:refreshDayView]
+  skip_before_filter :verify_authenticity_token, :only => [:submitCheckboxVal,:refreshMonthView,:refreshDayView,:destroybyajax]
   respond_to :html, :json, :xml
   def index
     @user = User.find(params[:user_id])
@@ -39,9 +39,14 @@ class ToDoTaskController < ApplicationController
     @user = User.find(params[:user_id])
     @toDoTask = @user.to_do_tasks.find(params[:id])
     @toDoTask.destroy
-    # redirect_to new_user_to_do_task_path
     redirect_to :back
+  end
 
+  def destroybyajax
+    @user = User.find(params[:user_id])
+    @toDoTask = @user.to_do_tasks.find(params[:id])
+    @toDoTask.destroy
+    render :nothing => true
   end
 
   def submitCheckboxVal

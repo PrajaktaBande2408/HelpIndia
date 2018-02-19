@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'welcome/works'
   post '/welcome/create'
   post 'to_do_task/submitCheckboxVal'
+  post 'to_do_task/destroybyajax'  => 'to_do_task#destroybyajax'
+
   post 'to_do_task/refreshMonthView' => 'to_do_task#refreshMonthView'
   post 'to_do_task/refreshDayView' => 'to_do_task#refreshDayView'
 
