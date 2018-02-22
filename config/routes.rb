@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'order/new'
   get 'welcome/works'
+
+
   post '/welcome/create'
   post 'to_do_task/submitCheckboxVal'
   post 'to_do_task/destroybyajax'  => 'to_do_task#destroybyajax'
@@ -18,10 +20,14 @@ Rails.application.routes.draw do
     resources :order
     get 'to_do_task/displayMonthView' => 'to_do_task#displayMonthView'
     get 'to_do_task/displayDayView' => 'to_do_task#displayDayView'
+    get 'to_do_task/todowithreact' => 'to_do_task#todowithreact'
+
     post 'to_do_task/new' => 'to_do_task#create'
     resources :to_do_task
     get 'order/listallOrders'
   end
+
+
 
   root 'welcome#welcome'
 

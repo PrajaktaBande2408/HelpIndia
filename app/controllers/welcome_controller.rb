@@ -11,4 +11,5 @@ class WelcomeController < ApplicationController
   def create
         UserMailer.welcome_email(params).deliver_now
   end
+
 end
